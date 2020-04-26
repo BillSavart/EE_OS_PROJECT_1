@@ -93,6 +93,8 @@ struct open_how;
  * CONFIG_ARCH_HAS_SYSCALL_WRAPPER is enabled.
  */
 #include <asm/syscall_wrapper.h>
+asmlinkage long sys_hello(void);
+
 #endif /* CONFIG_ARCH_HAS_SYSCALL_WRAPPER */
 
 /*
@@ -1224,7 +1226,6 @@ asmlinkage long sys_old_mmap(struct mmap_arg_struct __user *arg);
  * not implemented -- see kernel/sys_ni.c
  */
 asmlinkage long sys_ni_syscall(void);
-
 #endif /* CONFIG_ARCH_HAS_SYSCALL_WRAPPER */
 
 
@@ -1421,5 +1422,5 @@ long ksys_old_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);
 long compat_ksys_semtimedop(int semid, struct sembuf __user *tsems,
 			    unsigned int nsops,
 			    const struct old_timespec32 __user *timeout);
-asmlinkage long sys_hello(void);
+
 #endif
